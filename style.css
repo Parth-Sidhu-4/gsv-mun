@@ -1,0 +1,516 @@
+/* ==========================================================================
+   GSV MUN - Premium Global Styles (Logo Matched)
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap");
+
+:root {
+  /* Exact colors extracted from the GSV MUN Logo */
+  --logo-dark-blue: #1d2266;
+  --logo-bright-blue: #00a8e8;
+
+  --text-dark: #1a202c;
+  --text-body: #4a5568;
+  --bg-light: #fcfcfd;
+  --white: #ffffff;
+  --border-light: #e2e8f0;
+  --shadow-elegant: 0 10px 40px rgba(29, 34, 102, 0.08); /* Tinted to match dark blue */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: var(--text-body);
+  background-color: var(--bg-light);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Playfair Display", serif;
+  color: var(--logo-dark-blue);
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   Premium Navigation Bar
+   ========================================================================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 0.8rem 4rem;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.logo-placeholder {
+  width: 140px;
+  height: 60px;
+  background: #f1f5f9;
+  border: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  color: var(--logo-dark-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 2.5rem;
+}
+
+.nav-links a {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--logo-bright-blue);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: var(--logo-dark-blue);
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background-color: var(--logo-dark-blue);
+  color: var(--white);
+  position: relative;
+  border-bottom: 8px solid var(--logo-bright-blue);
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 2;
+  animation: fadeIn 1.5s ease;
+}
+
+/* Hero Section EPITOME Logo */
+.hero-epitome-logo {
+  height: 45px; /* Keeps it small and elegant */
+  width: auto;
+  display: block;
+  margin: 0 auto 1.5rem auto; /* Centers the image and pushes the text below it down */
+  object-fit: contain;
+}
+
+/* Mobile adjustment for the hero logo */
+@media (max-width: 600px) {
+  .hero-epitome-logo {
+    height: 35px;
+    margin-bottom: 1rem;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  color: var(--white);
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero h3 {
+  color: var(--logo-bright-blue);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #e2e8f0;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--logo-bright-blue);
+  color: var(--white);
+  padding: 1rem 2.5rem;
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--logo-bright-blue);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--logo-bright-blue);
+}
+
+/* ==========================================================================
+   Layouts & Elegant Cards
+   ========================================================================== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 120px 20px 80px 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  color: var(--logo-dark-blue);
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: var(--logo-bright-blue);
+  margin: 1.5rem auto 0;
+}
+
+/* Elegant Solid Cards */
+.card {
+  background: var(--white);
+  padding: 3rem;
+  box-shadow: var(--shadow-elegant);
+  border: 1px solid var(--border-light);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(29, 34, 102, 0.12);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+/* Highlights */
+.highlight-card {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-bottom: 3px solid transparent;
+}
+
+.highlight-card:hover {
+  border-bottom: 3px solid var(--logo-bright-blue);
+}
+
+.highlight-card i {
+  font-size: 2rem;
+  color: var(--logo-bright-blue);
+  margin-bottom: 1.5rem;
+}
+
+.highlight-card h4 {
+  font-family: "Inter", sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+/* Info Box */
+.info-box {
+  padding: 1.5rem;
+  border-left: 3px solid var(--logo-bright-blue);
+  background: #f8fafc;
+  margin: 1.5rem 0;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  background: var(--logo-dark-blue);
+  color: var(--white);
+  text-align: center;
+  padding: 4rem 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer h3 {
+  color: var(--white);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+footer p {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-family: "Inter", sans-serif;
+}
+
+/* ==========================================================================
+   Responsive Design & Mobile Navigation
+   ========================================================================== */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 1001; /* Keeps it above the mobile menu */
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--logo-dark-blue);
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .nav-links {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  /* Navbar Mobile Transformation */
+  .navbar {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid var(--logo-bright-blue);
+
+    /* Smooth dropdown animation using clip-path */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path 0.4s ease-in-out;
+  }
+
+  .nav-links.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Hamburger Animation to 'X' */
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Layout Adjustments */
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .card {
+    padding: 2rem 1.5rem;
+  }
+  .container {
+    padding: 100px 15px 50px 15px;
+  }
+
+  /* Typography Adjustments */
+  .hero h1 {
+    font-size: 3rem;
+  }
+  .section-title {
+    font-size: 2.2rem;
+  }
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  /* ==========================================================================
+   Social Media Links (Footer)
+   ========================================================================== */
+  .social-container {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .social-label {
+    font-family: "Inter", sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #94a3b8;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+  }
+
+  .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+  }
+
+  .social-icon:hover {
+    background-color: var(--logo-bright-blue);
+    border-color: var(--logo-bright-blue);
+    color: var(--logo-dark-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 168, 232, 0.3);
+  }
+}
+
+@media (max-width: 600px) {
+  /* Small Phone Adjustments */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  .hero h3 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  /* Shrink placeholders so they fit on narrow screens */
+  .logo-placeholder {
+    width: 100px;
+    height: 45px;
+    font-size: 0.6rem;
+  }
+
+  .sg-photo-large {
+    height: 300px;
+  }
+  .btn-primary {
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  /* Image Tag Overrides for Placeholders */
+  img.profile-img-placeholder,
+  img.sg-photo-large,
+  img.committee-logo-placeholder {
+    object-fit: cover; /* Ensures the photo fills the circle/box perfectly without stretching */
+    background: transparent;
+    padding: 0;
+  }
+
+  .nav-logo {
+    height: 60px; /* Matches the navbar height */
+    width: auto;
+    object-fit: contain;
+  }
+}

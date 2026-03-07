@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs | GSV MUN 2026</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .page-header {
+        background-color: var(--logo-dark-blue);
+        padding: 150px 20px 60px;
+        text-align: center;
+        color: var(--white);
+        border-bottom: 5px solid var(--logo-bright-blue);
+      }
+      .page-header h1 {
+        color: var(--white);
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Premium Accordion Styles */
+      .accordion-container {
+        max-width: 850px;
+        margin: 0 auto;
+      }
+      .accordion-item {
+        background: var(--white);
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-light);
+        border-radius: 4px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+      }
+      .accordion-item:hover {
+        box-shadow: 0 4px 15px rgba(0, 43, 94, 0.05);
+      }
+      .accordion-header {
+        padding: 1.5rem 2rem;
+        cursor: pointer;
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--logo-dark-blue);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--white);
+      }
+      .accordion-header i {
+        color: var(--logo-bright-blue);
+        font-size: 1rem;
+        transition: transform 0.4s ease;
+      }
+      .accordion-content {
+        padding: 0 2rem;
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.4s ease;
+        color: var(--text-body);
+        line-height: 1.8;
+        background: #f8fafc;
+      }
+      .accordion-item.active .accordion-content {
+        padding: 0 2rem 1.5rem 2rem;
+        max-height: 500px; /* Arbitrary height to allow smooth transition */
+        border-top: 1px dashed var(--border-light);
+        margin-top: 0.5rem;
+      }
+      .accordion-item.active {
+        border-color: var(--logo-bright-blue);
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img
+        src="images/gsv-mun-small (6).jpeg"
+        alt="GSV MUN 2026"
+        class="nav-logo"
+      />
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-mun.html">About MUN</a></li>
+        <li><a href="committee.html">Committee & Agenda</a></li>
+        <li><a href="rules.html">Rules of Procedure</a></li>
+        <li><a href="secretariat.html">Secretariat</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <img
+          src="images/dnq logo updated (1).png"
+          alt="EPITOME '26"
+          class="nav-logo"
+        />
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1>Frequently Asked Questions</h1>
+    </header>
+
+    <main class="container" style="padding-top: 60px">
+      <div class="accordion-container reveal-element">
+        <div class="accordion-item">
+          <div class="accordion-header">
+            What is a Model United Nations?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              It is an educational simulation where students learn about
+              diplomacy, international relations, and the United Nations by
+              acting as delegates for different countries.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Who can participate in GSV MUN?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              GSV MUN is open to students participating in the EPITOME 2026
+              fest.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Do I need prior experience? <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Not at all! This event is highly beginner-friendly, and the
+              Executive Board will guide new delegates through the rules of
+              procedure.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            What committee will be simulated?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              We will be simulating the United Nations General Assembly –
+              Disarmament and International Security Committee (UNGA DISEC).
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            What is the agenda? <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              The agenda is: Addressing the Rise of Hybrid Warfare and
+              Escalating Regional Conflicts (Proxy Warfare, Cross-Border
+              Terrorism, Cyber Operations, and Disinformation Campaigns).
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            How will country portfolios be assigned?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Portfolios will be assigned based on your preferences in the
+              registration form and availability. Registering early gives you a
+              better chance of getting your preferred country.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            What is the participation fee?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              The delegate participation fee is ₹49.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Will certificates be provided?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Yes, all delegates will receive a certificate of participation.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Are there prizes? <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Details regarding prizes for outstanding delegates will be
+              informed later subject to approval by the college administration.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            What should I wear? <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Western Formals or Indian Formals are expected. Dressing
+              professionally enhances the diplomatic atmosphere.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            What happens during committee sessions?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Delegates will give speeches outlining their country's stance,
+              debate specific topics, form alliances, and collaboratively draft
+              working papers to solve the issues on the agenda.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            Is there a limit on participants?
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="accordion-content">
+            <p style="padding-top: 1rem">
+              Yes, registrations close on 8 March, 11:59 p.m., and are strictly
+              subject to slot availability. Early registration is recommended.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <h3 style="font-family: &quot;Playfair Display&quot;, serif">
+        GSV Model United Nations 2026
+      </h3>
+
+      <p
+        style="
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 1rem;
+          color: var(--logo-bright-blue);
+        "
+      >
+        Debate & Quiz Club | Gati Shakti Vishwavidyalaya
+      </p>
+
+      <p>
+        Contact:
+        <a
+          href="mailto:debate.quiz@gsv.ac.in"
+          style="color: var(--white); text-decoration: underline"
+          >debate.quiz@gsv.ac.in</a
+        >
+      </p>
+
+      <div class="social-container">
+        <span class="social-label">Follow Us On</span>
+
+        <div class="social-icons">
+          <a
+            href="https://www.instagram.com/d.q.gsv/"
+            class="social-icon"
+            aria-label="Instagram"
+            target="_blank"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/108378145/"
+            class="social-icon"
+            aria-label="LinkedIn"
+            target="_blank"
+          >
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

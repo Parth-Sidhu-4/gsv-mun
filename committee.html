@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Committee & Agenda | GSV MUN 2026</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .page-header {
+        background-color: var(--logo-dark-blue);
+        padding: 150px 20px 60px;
+        text-align: center;
+        color: var(--white);
+        border-bottom: 5px solid var(--logo-bright-blue);
+      }
+      .page-header h1 {
+        color: var(--white);
+        font-size: 3.5rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Committee Profile Layout */
+      /* Committee Profile Layout */
+      /* Committee Profile Layout */
+      .committee-profile {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 3rem;
+        align-items: center; /* Changed from 'start' to 'center' */
+        margin-bottom: 4rem;
+      }
+
+      .committee-logo-placeholder {
+        width: 100%;
+        height: auto;
+        border-radius: 12px; /* Sleek rounded corners instead of a circle */
+        background: #000000; /* Black background to blend with your logo */
+        border: 2px solid var(--logo-bright-blue);
+        box-shadow: 0 10px 30px rgba(29, 34, 102, 0.15);
+        object-fit: cover;
+        padding: 0; /* Removed padding so the image fills the frame */
+      }
+      /* Agenda Focus Box */
+      .agenda-title {
+        color: var(--logo-dark-blue);
+        font-size: 1.8rem;
+        line-height: 1.4;
+        text-align: center;
+        margin: 2rem 0;
+        padding: 2.5rem;
+        background: #f8fafc;
+        border: 1px solid var(--border-light);
+        border-left: 5px solid var(--logo-bright-blue);
+        border-right: 5px solid var(--logo-bright-blue);
+        box-shadow: inset 0 0 20px rgba(0, 168, 232, 0.05);
+      }
+
+      /* Mobile Adjustments */
+      @media (max-width: 900px) {
+        .committee-profile {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          text-align: center;
+        }
+        .committee-logo-placeholder {
+          max-width: 200px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img
+        src="images/gsv-mun-small (6).jpeg"
+        alt="GSV MUN 2026"
+        class="nav-logo"
+      />
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-mun.html">About MUN</a></li>
+        <li><a href="committee.html">Committee & Agenda</a></li>
+        <li><a href="rules.html">Rules of Procedure</a></li>
+        <li><a href="secretariat.html">Secretariat</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <img
+          src="images/dnq logo updated (1).png"
+          alt="EPITOME '26"
+          class="nav-logo"
+        />
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1>UNGA DISEC</h1>
+      <p
+        style="
+          color: var(--logo-bright-blue);
+          font-family: &quot;Inter&quot;, sans-serif;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-weight: 500;
+        "
+      >
+        First Committee of the General Assembly
+      </p>
+    </header>
+
+    <main class="container" style="padding-top: 60px">
+      <section class="card reveal-element" style="margin-bottom: 4rem">
+        <h2
+          style="
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--logo-dark-blue);
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1rem;
+          "
+        >
+          About the Committee
+        </h2>
+
+        <div class="committee-profile">
+          <img
+            src="images/unga-disec.jpg"
+            alt="UNGA DISEC Logo"
+            class="committee-logo-placeholder"
+          />
+
+          <div>
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem">
+              Disarmament and International Security
+            </h3>
+            <p
+              style="
+                font-size: 1.05rem;
+                color: var(--text-body);
+                line-height: 1.8;
+                margin-bottom: 1rem;
+              "
+            >
+              Established in 1945, the First Committee of the United Nations
+              General Assembly (DISEC) is the premier global forum dedicated to
+              maintaining international peace and security. It was born out of
+              the ashes of the Second World War with a primary mandate to
+              address the unprecedented threat of nuclear weapons.
+            </p>
+            <p
+              style="
+                font-size: 1.05rem;
+                color: var(--text-body);
+                line-height: 1.8;
+              "
+            >
+              Today, DISEC deals with all disarmament and global security
+              questions. It considers principles governing cooperation in the
+              maintenance of international peace, and seeks comprehensive
+              solutions to threats within the international security regime.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 2rem">
+          <div class="info-box" style="margin: 0; text-align: center">
+            <i
+              class="fa-solid fa-radiation"
+              style="
+                font-size: 1.8rem;
+                color: var(--logo-bright-blue);
+                margin-bottom: 1rem;
+              "
+            ></i>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem">
+              WMD Non-Proliferation
+            </h4>
+            <p style="font-size: 0.9rem">
+              Preventing the spread of nuclear, chemical, and biological
+              weaponry.
+            </p>
+          </div>
+          <div class="info-box" style="margin: 0; text-align: center">
+            <i
+              class="fa-solid fa-crosshairs"
+              style="
+                font-size: 1.8rem;
+                color: var(--logo-bright-blue);
+                margin-bottom: 1rem;
+              "
+            ></i>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem">
+              Conventional Arms
+            </h4>
+            <p style="font-size: 0.9rem">
+              Regulating the illicit trade of small arms and explosive remnants
+              of war.
+            </p>
+          </div>
+          <div class="info-box" style="margin: 0; text-align: center">
+            <i
+              class="fa-solid fa-network-wired"
+              style="
+                font-size: 1.8rem;
+                color: var(--logo-bright-blue);
+                margin-bottom: 1rem;
+              "
+            ></i>
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem">
+              Emerging Threats
+            </h4>
+            <p style="font-size: 0.9rem">
+              Addressing asymmetric warfare, cyber terrorism, and AI in military
+              tech.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card reveal-element">
+        <h2 class="section-title" style="margin-bottom: 1rem">The Agenda</h2>
+
+        <div class="agenda-title">
+          Addressing the Rise of Hybrid Warfare in Contemporary Regional
+          Conflicts<br />
+          <span
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 1.1rem;
+              font-weight: 500;
+              color: var(--text-body);
+              display: block;
+              margin-top: 1rem;
+              text-transform: uppercase;
+              letter-spacing: 1px;
+            "
+          >
+            Focus Areas: Proxy Warfare and Cross-Border Terrorism
+          </span>
+        </div>
+
+        <h4
+          style="
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--logo-dark-blue);
+          "
+        >
+          Geopolitical Context
+        </h4>
+        <p
+          style="color: var(--text-body); line-height: 1.8; margin-bottom: 1rem"
+        >
+          The nature of global conflict has undergone a significant
+          transformation. Instead of direct, declared wars between major powers,
+          modern conflicts increasingly unfold through hybrid strategies that
+          combine conventional military pressure with indirect forms of
+          confrontation.
+        </p>
+        <p
+          style="color: var(--text-body); line-height: 1.8; margin-bottom: 1rem"
+        >
+          Hybrid warfare often involves states influencing conflicts through
+          proxy actors, non-state militant groups, and indirect military
+          support, allowing powers to pursue geopolitical objectives while
+          avoiding full-scale interstate war.
+        </p>
+        <p
+          style="color: var(--text-body); line-height: 1.8; margin-bottom: 3rem"
+        >
+          Recent global developments highlight how regional conflicts can
+          quickly expand into broader geopolitical crises involving multiple
+          state and non-state actors.
+        </p>
+
+        <div
+          style="
+            background: #f8fafc;
+            border-left: 4px solid var(--logo-bright-blue);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+          "
+        >
+          <h4
+            style="
+              font-size: 1.3rem;
+              margin-bottom: 1rem;
+              color: var(--logo-dark-blue);
+            "
+          >
+            Proxy Warfare & Regional Power Rivalries
+          </h4>
+          <p
+            style="
+              color: var(--text-body);
+              line-height: 1.8;
+              margin-bottom: 1rem;
+            "
+          >
+            Proxy warfare has become one of the defining characteristics of
+            contemporary geopolitics. States frequently support allied militias,
+            insurgent groups, or regional partners to advance strategic
+            interests while limiting direct military confrontation. For example:
+          </p>
+          <ul
+            style="
+              margin-left: 1.5rem;
+              color: var(--text-body);
+              line-height: 1.8;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <li style="margin-bottom: 0.5rem">
+              In the ongoing 2026 Iran–US–Israel conflict, tensions escalated
+              dramatically after coordinated U.S. and Israeli strikes on Iranian
+              military and nuclear facilities in February 2026, triggering
+              retaliatory missile and drone attacks by Iran across the region.
+            </li>
+            <li style="margin-bottom: 0.5rem">
+              The conflict has also drawn in regional actors such as Hezbollah
+              in Lebanon, demonstrating how proxy forces can rapidly widen a
+              regional confrontation.
+            </li>
+            <li style="margin-bottom: 0.5rem">
+              Similarly, in the Russia–Ukraine conflict, the involvement of
+              separatist forces and indirect external support has often been
+              analyzed through the lens of proxy warfare.
+            </li>
+          </ul>
+          <p
+            style="
+              color: var(--logo-dark-blue);
+              font-weight: 500;
+              font-size: 0.95rem;
+              font-style: italic;
+            "
+          >
+            Such dynamics make conflicts more complex, as multiple actors
+            influence the battlefield without always engaging directly.
+          </p>
+        </div>
+
+        <div
+          style="
+            background: #f8fafc;
+            border-left: 4px solid var(--logo-bright-blue);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 0 8px 8px 0;
+          "
+        >
+          <h4
+            style="
+              font-size: 1.3rem;
+              margin-bottom: 1rem;
+              color: var(--logo-dark-blue);
+            "
+          >
+            Cross-Border Terrorism
+          </h4>
+          <p
+            style="
+              color: var(--text-body);
+              line-height: 1.8;
+              margin-bottom: 1rem;
+            "
+          >
+            Cross-border terrorism remains a persistent challenge to
+            international peace and regional stability. Non-state actors
+            operating across national boundaries can conduct attacks,
+            destabilize regions, and intensify tensions between neighboring
+            states. Examples include:
+          </p>
+          <ul
+            style="
+              margin-left: 1.5rem;
+              color: var(--text-body);
+              line-height: 1.8;
+              margin-bottom: 1.5rem;
+            "
+          >
+            <li style="margin-bottom: 0.5rem">
+              The long-standing tensions between India and Pakistan, where
+              accusations of cross-border militant activity have repeatedly
+              heightened regional security concerns.
+            </li>
+            <li style="margin-bottom: 0.5rem">
+              Armed groups operating across borders in parts of the Middle East,
+              where militant organizations often function across several states
+              simultaneously.
+            </li>
+          </ul>
+          <p
+            style="
+              color: var(--logo-dark-blue);
+              font-weight: 500;
+              font-size: 0.95rem;
+              font-style: italic;
+            "
+          >
+            These situations raise important questions about state
+            responsibility, sovereignty, and international cooperation in
+            counterterrorism efforts.
+          </p>
+        </div>
+
+        <h4
+          style="
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            color: var(--logo-dark-blue);
+          "
+        >
+          Delegate Directives for Research
+        </h4>
+        <p style="color: var(--text-body); margin-bottom: 1.5rem">
+          To effectively participate in committee deliberations, delegates are
+          encouraged to focus their research on the following areas:
+        </p>
+
+        <ul
+          style="margin-left: 2rem; color: var(--text-body); line-height: 1.8"
+        >
+          <li style="margin-bottom: 0.8rem">
+            Examine your assigned country's historical stance on proxy warfare
+            and indirect conflict strategies.
+          </li>
+          <li style="margin-bottom: 0.8rem">
+            Analyze your nation’s policies regarding non-state armed groups and
+            cross-border militancy.
+          </li>
+          <li style="margin-bottom: 0.8rem">
+            Evaluate international legal frameworks addressing state
+            responsibility for proxy actors and terrorism.
+          </li>
+          <li style="margin-bottom: 0.8rem">
+            Propose diplomatic mechanisms that could help reduce escalation and
+            improve regional stability in hybrid conflicts.
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <h3 style="font-family: &quot;Playfair Display&quot;, serif">
+        GSV Model United Nations 2026
+      </h3>
+
+      <p
+        style="
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 1rem;
+          color: var(--logo-bright-blue);
+        "
+      >
+        Debate & Quiz Club | Gati Shakti Vishwavidyalaya
+      </p>
+
+      <p>
+        Contact:
+        <a
+          href="mailto:debate.quiz@gsv.ac.in"
+          style="color: var(--white); text-decoration: underline"
+          >debate.quiz@gsv.ac.in</a
+        >
+      </p>
+
+      <div class="social-container">
+        <span class="social-label">Follow Us On</span>
+
+        <div class="social-icons">
+          <a
+            href="https://www.instagram.com/d.q.gsv/"
+            class="social-icon"
+            aria-label="Instagram"
+            target="_blank"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/company/108378145/"
+            class="social-icon"
+            aria-label="LinkedIn"
+            target="_blank"
+          >
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
