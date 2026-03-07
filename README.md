@@ -1,6 +1,6 @@
 # GSV Model United Nations 2026 - Official Website
 
-![GSV MUN Logo Placeholder](images/gsv-mun-small.jpeg)
+![GSV MUN Logo](images/gsv-mun-small.jpeg)
 
 The official web platform for the inaugural **GSV Model United Nations
 2026**. Organized by the Debate & Quiz Club, this conference is a
@@ -87,7 +87,7 @@ MUN and EPITOME 2026 branding. These are defined as CSS variables in
 ### Clone the repository
 
 ```bash
-git clone https://github.com/Parthg-Sidhu-4/gsv-mun.git
+git clone https://github.com/Parth-Sidhu-4/gsv-mun.git
 ```
 
 ### Navigate to the project directory
