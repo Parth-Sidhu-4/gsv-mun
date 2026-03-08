@@ -1,0 +1,1165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Matrix | GA-DISEC | GSV MUN 2026</title>
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+    />
+
+    <style>
+      .page-header {
+        background-color: var(--logo-dark-blue);
+        padding: 150px 20px 60px;
+        text-align: center;
+        color: var(--white);
+        border-bottom: 5px solid var(--logo-bright-blue);
+      }
+      .page-header h1 {
+        color: var(--white);
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Matrix Table Styles */
+      .table-wrapper {
+        overflow-x: auto;
+        background: var(--white);
+        border-radius: 8px;
+        box-shadow: var(--shadow-elegant);
+        border: 1px solid var(--border-light);
+        margin-bottom: 3rem;
+      }
+      .matrix-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        min-width: 900px;
+      }
+      .matrix-table th {
+        background: var(--logo-dark-blue);
+        color: var(--white);
+        padding: 1.2rem 1rem;
+        font-family: "Inter", sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      .matrix-table td {
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        color: var(--text-body);
+        font-size: 0.95rem;
+        line-height: 1.6;
+        vertical-align: top;
+      }
+      .country-name {
+        font-weight: 600;
+        color: var(--logo-dark-blue);
+        font-size: 1.05rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .country-flag {
+        border-radius: 2px;
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+        font-size: 1.1rem;
+      }
+
+      /* Alliance Badges */
+      .badge {
+        display: inline-block;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-right: 0.4rem;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.5px;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+      .badge-g7 {
+        color: #3730a3;
+      }
+      .badge-brics {
+        color: #9d174d;
+      }
+      .badge-g20 {
+        color: #166534;
+      }
+      .badge-none {
+        color: #94a3b8;
+        font-size: 0.8rem;
+        border: none;
+        background: transparent;
+      }
+
+      /* Bloc Text Styling */
+      .bloc-icon {
+        margin-right: 6px;
+        border-radius: 2px;
+      }
+      .bloc-west {
+        color: #0284c7;
+        font-weight: 600;
+      }
+      .bloc-russia {
+        color: #dc2626;
+        font-weight: 600;
+      }
+      .bloc-china {
+        color: #ea580c;
+        font-weight: 600;
+      }
+      .bloc-me {
+        color: #059669;
+        font-weight: 600;
+      }
+      .bloc-africa {
+        color: #d97706;
+        font-weight: 600;
+      }
+      .bloc-swing {
+        color: #7c3aed;
+        font-weight: 600;
+      }
+
+      /* Bloc Background Colors (Pastel) & Hover Effects */
+      tr.row-west {
+        background-color: #f0f9ff;
+        transition: background-color 0.2s ease;
+      }
+      tr.row-west:hover {
+        background-color: #e0f2fe;
+      }
+
+      tr.row-russia {
+        background-color: #fef2f2;
+        transition: background-color 0.2s ease;
+      }
+      tr.row-russia:hover {
+        background-color: #fee2e2;
+      }
+
+      tr.row-china {
+        background-color: #fefce8;
+        transition: background-color 0.2s ease;
+      }
+      tr.row-china:hover {
+        background-color: #fef9c3;
+      }
+
+      tr.row-me {
+        background-color: #f0fdf4;
+        transition: background-color 0.2s ease;
+      }
+      tr.row-me:hover {
+        background-color: #dcfce7;
+      }
+
+      tr.row-africa {
+        background-color: #fff7ed;
+        transition: background-color 0.2s ease;
+      }
+      tr.row-africa:hover {
+        background-color: #ffedd5;
+      }
+
+      tr.row-swing {
+        background-color: #faf5ff;
+        transition: background-color 0.2s ease;
+      }
+      tr.row-swing:hover {
+        background-color: #f3e8ff;
+      }
+
+      .matrix-legend {
+        background: #f8fafc;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border-left: 4px solid var(--logo-bright-blue);
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+        color: var(--text-body);
+        line-height: 1.8;
+      }
+
+      /* Mobile "Card" Layout */
+      @media (max-width: 768px) {
+        .matrix-table {
+          min-width: 100%;
+        }
+        .matrix-table thead {
+          display: none;
+        }
+
+        .matrix-table,
+        .matrix-table tbody,
+        .matrix-table tr,
+        .matrix-table td {
+          display: block;
+          width: 100%;
+        }
+
+        .matrix-table tr {
+          margin-bottom: 1.5rem;
+          border: 1px solid rgba(0, 0, 0, 0.08);
+          border-radius: 8px;
+          box-shadow: 0 4px 15px rgba(29, 34, 102, 0.08);
+          padding: 0.5rem 0;
+        }
+
+        .matrix-table td {
+          text-align: right;
+          padding: 0.8rem 1rem 0.8rem 40%;
+          position: relative;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        .matrix-table td:last-child {
+          border-bottom: none;
+        }
+
+        .matrix-table td::before {
+          position: absolute;
+          left: 1rem;
+          width: 35%;
+          text-align: left;
+          font-weight: 700;
+          color: var(--logo-dark-blue);
+          font-size: 0.75rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .matrix-table td:nth-of-type(1)::before {
+          content: "Number";
+        }
+        .matrix-table td:nth-of-type(2)::before {
+          content: "Country";
+        }
+        .matrix-table td:nth-of-type(3)::before {
+          content: "Bloc";
+        }
+        .matrix-table td:nth-of-type(4)::before {
+          content: "Affiliations";
+        }
+        .matrix-table td:nth-of-type(5)::before {
+          content: "Role";
+        }
+
+        .matrix-table td:nth-of-type(6) {
+          text-align: left;
+          padding: 1rem;
+          display: block;
+        }
+        .matrix-table td:nth-of-type(6)::before {
+          content: "Hybrid Warfare Stance & Key Issues";
+          position: static;
+          display: block;
+          margin-bottom: 0.8rem;
+          width: 100%;
+          border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+          padding-bottom: 0.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <img
+        src="images/gsv-mun-small (6).jpeg"
+        alt="GSV MUN 2026"
+        class="nav-logo"
+      />
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about-mun.html">About MUN</a></li>
+        <li><a href="committee.html">Committee & Agenda</a></li>
+        <li><a href="rules.html">Rules of Procedure</a></li>
+        <li><a href="secretariat.html">Secretariat</a></li>
+        <li><a href="faq.html">FAQs</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <img
+          src="images/dnq logo updated (1).png"
+          alt="EPITOME '26"
+          class="nav-logo"
+        />
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <header class="page-header">
+      <h1>Country Assignments</h1>
+      <p
+        style="
+          color: var(--logo-bright-blue);
+          font-family: &quot;Inter&quot;, sans-serif;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+        "
+      >
+        40 Delegations | GA-DISEC Committee
+      </p>
+    </header>
+
+    <main class="container" style="padding-top: 60px; max-width: 1200px">
+      <div>
+        <h2 class="section-title" style="margin-bottom: 1rem; text-align: left">
+          Delegate Country Matrix
+        </h2>
+        <p
+          style="
+            color: var(--text-body);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+          "
+        >
+          Agenda: Addressing the Rise of Hybrid Warfare in Contemporary Regional
+          Conflicts
+        </p>
+
+        <div class="matrix-legend">
+          <strong
+            style="
+              color: var(--logo-dark-blue);
+              display: block;
+              margin-bottom: 0.5rem;
+            "
+            >Bloc Legend (Color Coded):</strong
+          >
+          <span class="fi fi-us bloc-icon"></span>
+          <span
+            style="
+              background: #f0f9ff;
+              padding: 2px 6px;
+              border-radius: 4px;
+              border: 1px solid #bae6fd;
+            "
+            >US-Led West (8)</span
+          >
+          &nbsp;|&nbsp; <span class="fi fi-ru bloc-icon"></span>
+          <span
+            style="
+              background: #fef2f2;
+              padding: 2px 6px;
+              border-radius: 4px;
+              border: 1px solid #fecaca;
+            "
+            >Russia-Aligned (7)</span
+          >
+          &nbsp;|&nbsp; <span class="fi fi-cn bloc-icon"></span>
+          <span
+            style="
+              background: #fefce8;
+              padding: 2px 6px;
+              border-radius: 4px;
+              border: 1px solid #fef08a;
+            "
+            >China-Aligned (7)</span
+          >
+          &nbsp;|&nbsp; <i class="fa-solid fa-globe bloc-icon"></i>
+          <span
+            style="
+              background: #f0fdf4;
+              padding: 2px 6px;
+              border-radius: 4px;
+              border: 1px solid #bbf7d0;
+            "
+            >Middle East (7)</span
+          >
+          &nbsp;|&nbsp; <i class="fa-solid fa-earth-africa bloc-icon"></i>
+          <span
+            style="
+              background: #fff7ed;
+              padding: 2px 6px;
+              border-radius: 4px;
+              border: 1px solid #fed7aa;
+            "
+            >Africa (6)</span
+          >
+          &nbsp;|&nbsp; <i class="fa-solid fa-scale-balanced bloc-icon"></i>
+          <span
+            style="
+              background: #faf5ff;
+              padding: 2px 6px;
+              border-radius: 4px;
+              border: 1px solid #e9d5ff;
+            "
+            >Swing (5)</span
+          >
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 5%">#</th>
+              <th style="width: 20%">Country</th>
+              <th style="width: 15%">Bloc</th>
+              <th style="width: 12%">Affiliations</th>
+              <th style="width: 18%">Committee Role</th>
+              <th style="width: 30%">Hybrid Warfare Stance & Key Issues</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row-west">
+              <td>1</td>
+              <td class="country-name">
+                <span class="fi fi-us country-flag"></span> United States
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td>
+                <span class="badge badge-g7">G7</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Cyber & Info Warfare Leader</td>
+              <td>
+                Leads NATO cyber doctrine; frames hybrid warfare as
+                state-sponsored aggression; pushes for international norms.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>2</td>
+              <td class="country-name">
+                <span class="fi fi-gb country-flag"></span> United Kingdom
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td>
+                <span class="badge badge-g7">G7</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Counter-Hybrid Pioneer</td>
+              <td>
+                Post-Salisbury poisoning, strong cyber attribution policies;
+                leads AUKUS and Five Eyes intelligence sharing.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>3</td>
+              <td class="country-name">
+                <span class="fi fi-fr country-flag"></span> France
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td>
+                <span class="badge badge-g7">G7</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Counter-Disinformation Actor</td>
+              <td>
+                Active in Sahel counter-hybrid ops; leads EU strategic autonomy
+                doctrine against foreign interference.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>4</td>
+              <td class="country-name">
+                <span class="fi fi-de country-flag"></span> Germany
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td>
+                <span class="badge badge-g7">G7</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Disinformation Target</td>
+              <td>
+                Primary target of Russian hybrid campaigns; champions
+                international cyber law and digital sovereignty.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>5</td>
+              <td class="country-name">
+                <span class="fi fi-jp country-flag"></span> Japan
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td>
+                <span class="badge badge-g7">G7</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Emerging Hybrid Defender</td>
+              <td>
+                Shifting defense posture in response to China/NK cyber threats;
+                expanding offensive cyber capabilities.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>6</td>
+              <td class="country-name">
+                <span class="fi fi-ca country-flag"></span> Canada
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td>
+                <span class="badge badge-g7">G7</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>NATO Norm Builder</td>
+              <td>
+                Advocates multilateral frameworks; leads cyber incident
+                attribution with Five Eyes partners.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>7</td>
+              <td class="country-name">
+                <span class="fi fi-au country-flag"></span> Australia
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td><span class="badge badge-g20">G20</span></td>
+              <td>Chinese Influence Target</td>
+              <td>
+                Suffered large-scale Chinese cyber intrusions; AUKUS partner
+                pushing back on cognitive warfare campaigns.
+              </td>
+            </tr>
+            <tr class="row-west">
+              <td>8</td>
+              <td class="country-name">
+                <span class="fi fi-kr country-flag"></span> South Korea
+              </td>
+              <td class="bloc-west">
+                <span class="fi fi-us bloc-icon"></span> US-Led West
+              </td>
+              <td><span class="badge badge-g20">G20</span></td>
+              <td>NK Cyber Frontline State</td>
+              <td>
+                Faces persistent North Korean cyber operations; advocates for
+                hybrid threat classification at UN level.
+              </td>
+            </tr>
+
+            <tr class="row-russia">
+              <td>9</td>
+              <td class="country-name">
+                <span class="fi fi-ru country-flag"></span> Russia
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Hybrid Warfare Architect</td>
+              <td>
+                Pioneered modern hybrid warfare in Ukraine/Georgia; deploys
+                disinformation, cyberattacks, and proxy forces.
+              </td>
+            </tr>
+            <tr class="row-russia">
+              <td>10</td>
+              <td class="country-name">
+                <span class="fi fi-by country-flag"></span> Belarus
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td><span class="badge badge-brics">BRICS Partner</span></td>
+              <td>Weaponized Migration Actor</td>
+              <td>
+                Used migrants as hybrid weapon vs EU border; hosts Russian
+                nuclear weapons; BRICS partner state.
+              </td>
+            </tr>
+            <tr class="row-russia">
+              <td>11</td>
+              <td class="country-name">
+                <span class="fi fi-rs country-flag"></span> Serbia
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Disinformation Hub</td>
+              <td>
+                EU candidate that runs pro-Russia narratives; receives military
+                equipment from both Russia and China.
+              </td>
+            </tr>
+            <tr class="row-russia">
+              <td>12</td>
+              <td class="country-name">
+                <span class="fi fi-hu country-flag"></span> Hungary
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>NATO's Russia-Friendly Outlier</td>
+              <td>
+                Blocks EU sanctions; maintains Russophile foreign policy within
+                NATO; key disinformation vector in Europe.
+              </td>
+            </tr>
+            <tr class="row-russia">
+              <td>13</td>
+              <td class="country-name">
+                <span class="fi fi-cu country-flag"></span> Cuba
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td><span class="badge badge-brics">BRICS Partner</span></td>
+              <td>Influence Projection Ally</td>
+              <td>
+                Historic Russian ally; Russian signals intelligence facilities
+                on island; BRICS partner country.
+              </td>
+            </tr>
+            <tr class="row-russia">
+              <td>14</td>
+              <td class="country-name">
+                <span class="fi fi-ni country-flag"></span> Nicaragua
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Authoritarian Proxy</td>
+              <td>
+                Russian military presence and cyber cooperation; allowed Russian
+                warships port access in 2024.
+              </td>
+            </tr>
+            <tr class="row-russia">
+              <td>15</td>
+              <td class="country-name">
+                <span class="fi fi-sy country-flag"></span> Syria
+              </td>
+              <td class="bloc-russia">
+                <span class="fi fi-ru bloc-icon"></span> Russia-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Hybrid Battleground & Client</td>
+              <td>
+                Russian hybrid operations tested here; chemical weapons use,
+                disinformation campaigns, proxy militias.
+              </td>
+            </tr>
+
+            <tr class="row-china">
+              <td>16</td>
+              <td class="country-name">
+                <span class="fi fi-cn country-flag"></span> China
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Cognitive Warfare Power</td>
+              <td>
+                Runs global disinformation networks; Taiwan grey-zone ops;
+                economic coercion as hybrid tool (Belt & Road).
+              </td>
+            </tr>
+            <tr class="row-china">
+              <td>17</td>
+              <td class="country-name">
+                <span class="fi fi-pk country-flag"></span> Pakistan
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td><span class="badge badge-g20">G20</span></td>
+              <td>Hybrid Actor / CPEC Partner</td>
+              <td>
+                State-sponsored hybrid ops in Kashmir; deep CPEC dependency on
+                China; shelters non-state militant groups.
+              </td>
+            </tr>
+            <tr class="row-china">
+              <td>18</td>
+              <td class="country-name">
+                <span class="fi fi-kp country-flag"></span> North Korea
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Cyber Rogue State</td>
+              <td>
+                Lazarus Group steals billions; EMP and ransomware threats;
+                survives via Chinese economic lifeline.
+              </td>
+            </tr>
+            <tr class="row-china">
+              <td>19</td>
+              <td class="country-name">
+                <span class="fi fi-mm country-flag"></span> Myanmar
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Military Hybrid Control</td>
+              <td>
+                Junta uses disinformation and violence; China supplies arms;
+                digital oppression of ethnic minorities.
+              </td>
+            </tr>
+            <tr class="row-china">
+              <td>20</td>
+              <td class="country-name">
+                <span class="fi fi-ve country-flag"></span> Venezuela
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td><span class="badge badge-g20">G20</span></td>
+              <td>Economic Hybrid Target</td>
+              <td>
+                US hybrid pressure via sanctions; Russia/China/Cuba prop up
+                Maduro; exports authoritarian tech model.
+              </td>
+            </tr>
+            <tr class="row-china">
+              <td>21</td>
+              <td class="country-name">
+                <span class="fi fi-ir country-flag"></span> Iran
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td><span class="badge badge-brics">BRICS</span></td>
+              <td>Proxy Network Commander</td>
+              <td>
+                Controls Hezbollah, Houthis, and Iraqi militias; cyber
+                capabilities (Stuxnet response); drone proliferator.
+              </td>
+            </tr>
+            <tr class="row-china">
+              <td>22</td>
+              <td class="country-name">
+                <span class="fi fi-kh country-flag"></span> Cambodia
+              </td>
+              <td class="bloc-china">
+                <span class="fi fi-cn bloc-icon"></span> China-Aligned
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Chinese Influence Model</td>
+              <td>
+                Chinese military base presence; ASEAN proxy blocking South China
+                Sea resolutions; digital surveillance ally.
+              </td>
+            </tr>
+
+            <tr class="row-me">
+              <td>23</td>
+              <td class="country-name">
+                <span class="fi fi-il country-flag"></span> Israel
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>High-Tech Hybrid Actor</td>
+              <td>
+                Iron Dome, Pegasus spyware, precision targeted ops in
+                Lebanon/Gaza; normalisation via Abraham Accords.
+              </td>
+            </tr>
+            <tr class="row-me">
+              <td>24</td>
+              <td class="country-name">
+                <span class="fi fi-sa country-flag"></span> Saudi Arabia
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Hybrid War Victim & Sponsor</td>
+              <td>
+                Target of Houthi drone/missile hybrid attacks; uses economic
+                influence and media (MBS/Al Arabiya) as tools.
+              </td>
+            </tr>
+            <tr class="row-me">
+              <td>25</td>
+              <td class="country-name">
+                <span class="fi fi-tr country-flag"></span> Turkey
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS Partner</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Ambiguous NATO Member</td>
+              <td>
+                Deploys Bayraktar drones in Libya/Syria/Ukraine; plays Russia vs
+                NATO; migration as leverage vs EU.
+              </td>
+            </tr>
+            <tr class="row-me">
+              <td>26</td>
+              <td class="country-name">
+                <span class="fi fi-ae country-flag"></span> UAE
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Dual-Alignment Cyber Power</td>
+              <td>
+                Advanced cyber capabilities (Project Raven); BRICS member while
+                maintaining US military base; AI warfare investor.
+              </td>
+            </tr>
+            <tr class="row-me">
+              <td>27</td>
+              <td class="country-name">
+                <span class="fi fi-qa country-flag"></span> Qatar
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Information Warfare Hub</td>
+              <td>
+                Al Jazeera as soft power/influence tool; hosts both US military
+                base and Hamas political office.
+              </td>
+            </tr>
+            <tr class="row-me">
+              <td>28</td>
+              <td class="country-name">
+                <span class="fi fi-ye country-flag"></span> Yemen (Houthis)
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Proxy Hybrid Actor</td>
+              <td>
+                Iranian-backed drone/missile attacks on global shipping;
+                demonstrates how non-state actors disrupt global economy.
+              </td>
+            </tr>
+            <tr class="row-me">
+              <td>29</td>
+              <td class="country-name">
+                <span class="fi fi-lb country-flag"></span> Lebanon/Hezbollah
+              </td>
+              <td class="bloc-me">
+                <i class="fa-solid fa-globe bloc-icon"></i> Middle East
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Non-State Hybrid Warfare Model</td>
+              <td>
+                Hezbollah blurs state/non-state lines; rocket arsenals,
+                intelligence networks, political party simultaneously.
+              </td>
+            </tr>
+
+            <tr class="row-africa">
+              <td>30</td>
+              <td class="country-name">
+                <span class="fi fi-za country-flag"></span> South Africa
+              </td>
+              <td class="bloc-africa">
+                <i class="fa-solid fa-earth-africa bloc-icon"></i> Africa
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Non-Aligned BRICS Voice</td>
+              <td>
+                Chairs BRICS 2025; bridges Western and Global South; strategic
+                neutral on Ukraine hybrid war narrative.
+              </td>
+            </tr>
+            <tr class="row-africa">
+              <td>31</td>
+              <td class="country-name">
+                <span class="fi fi-et country-flag"></span> Ethiopia
+              </td>
+              <td class="bloc-africa">
+                <i class="fa-solid fa-earth-africa bloc-icon"></i> Africa
+              </td>
+              <td><span class="badge badge-brics">BRICS</span></td>
+              <td>African Hybrid Conflict Zone</td>
+              <td>
+                Tigray conflict featured disinformation & drone warfare; BRICS
+                member; China infrastructure dependency.
+              </td>
+            </tr>
+            <tr class="row-africa">
+              <td>32</td>
+              <td class="country-name">
+                <span class="fi fi-eg country-flag"></span> Egypt
+              </td>
+              <td class="bloc-africa">
+                <i class="fa-solid fa-earth-africa bloc-icon"></i> Africa
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Multi-Vector Balancer</td>
+              <td>
+                BRICS member and US aid recipient; controls Suez Canal (critical
+                hybrid pressure point); authoritarian media control.
+              </td>
+            </tr>
+            <tr class="row-africa">
+              <td>33</td>
+              <td class="country-name">
+                <span class="fi fi-ng country-flag"></span> Nigeria
+              </td>
+              <td class="bloc-africa">
+                <i class="fa-solid fa-earth-africa bloc-icon"></i> Africa
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS Partner</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Disinformation & Insurgency</td>
+              <td>
+                Faces Boko Haram hybrid insurgency; BRICS partner; Russian
+                Wagner Group previously operated in region.
+              </td>
+            </tr>
+            <tr class="row-africa">
+              <td>34</td>
+              <td class="country-name">
+                <span class="fi fi-ly country-flag"></span> Libya
+              </td>
+              <td class="bloc-africa">
+                <i class="fa-solid fa-earth-africa bloc-icon"></i> Africa
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Proxy War Theater</td>
+              <td>
+                Russia (Wagner/now Africa Corps), Turkey, UAE all fighting
+                hybrid proxy war; collapsed state as battleground.
+              </td>
+            </tr>
+            <tr class="row-africa">
+              <td>35</td>
+              <td class="country-name">
+                <span class="fi fi-ml country-flag"></span> Mali
+              </td>
+              <td class="bloc-africa">
+                <i class="fa-solid fa-earth-africa bloc-icon"></i> Africa
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Wagner/Russian Foothold</td>
+              <td>
+                Expelled French forces; invited Russian Africa Corps;
+                disinformation against Western peacekeepers (MINUSMA).
+              </td>
+            </tr>
+
+            <tr class="row-swing">
+              <td>36</td>
+              <td class="country-name">
+                <span class="fi fi-in country-flag"></span> India
+              </td>
+              <td class="bloc-swing">
+                <i class="fa-solid fa-scale-balanced bloc-icon"></i>
+                Swing/Neutral
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Strategic Autonomy Actor</td>
+              <td>
+                BRICS member + Quad member; buys Russian oil while in western
+                forums; faces China/Pakistan dual hybrid threat.
+              </td>
+            </tr>
+            <tr class="row-swing">
+              <td>37</td>
+              <td class="country-name">
+                <span class="fi fi-br country-flag"></span> Brazil
+              </td>
+              <td class="bloc-swing">
+                <i class="fa-solid fa-scale-balanced bloc-icon"></i>
+                Swing/Neutral
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>Global South Broker</td>
+              <td>
+                BRICS 2025 chair; Lula pushes multipolar order; critical of both
+                US unilateralism and Russian aggression.
+              </td>
+            </tr>
+            <tr class="row-swing">
+              <td>38</td>
+              <td class="country-name">
+                <span class="fi fi-id country-flag"></span> Indonesia
+              </td>
+              <td class="bloc-swing">
+                <i class="fa-solid fa-scale-balanced bloc-icon"></i>
+                Swing/Neutral
+              </td>
+              <td>
+                <span class="badge badge-brics">BRICS</span>
+                <span class="badge badge-g20">G20</span>
+              </td>
+              <td>ASEAN Swing State</td>
+              <td>
+                Newest BRICS full member (Jan 2025); largest Muslim democracy;
+                non-aligned but faces Chinese maritime pressure.
+              </td>
+            </tr>
+            <tr class="row-swing">
+              <td>39</td>
+              <td class="country-name">
+                <span class="fi fi-ua country-flag"></span> Ukraine
+              </td>
+              <td class="bloc-swing">
+                <i class="fa-solid fa-scale-balanced bloc-icon"></i>
+                Swing/Neutral
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Hybrid Warfare Ground Zero</td>
+              <td>
+                Living case study of full-spectrum hybrid war; cyberattacks,
+                disinformation, drone warfare, economic siege.
+              </td>
+            </tr>
+            <tr class="row-swing">
+              <td>40</td>
+              <td class="country-name">
+                <span class="fi fi-az country-flag"></span> Azerbaijan
+              </td>
+              <td class="bloc-swing">
+                <i class="fa-solid fa-scale-balanced bloc-icon"></i>
+                Swing/Neutral
+              </td>
+              <td><span class="badge-none">—</span></td>
+              <td>Drone Warfare Pioneer</td>
+              <td>
+                Used Turkish Bayraktars + Israeli loitering munitions in
+                Nagorno-Karabakh — redefined modern hybrid warfare.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style="
+          font-size: 0.85rem;
+          color: #64748b;
+          margin-bottom: 4rem;
+          padding-left: 1rem;
+          border-left: 2px solid var(--border-light);
+        "
+      >
+        <p style="margin-bottom: 0.3rem">
+          <strong>Note:</strong> BRICS members (2025) include Brazil, Russia,
+          India, China, South Africa, Egypt, Ethiopia, Iran, UAE, Indonesia, and
+          Saudi Arabia.
+        </p>
+        <p>
+          <strong>Note:</strong> G7 members include USA, UK, France, Germany,
+          Japan, Canada, and Italy. The G20 includes all G7 members plus other
+          major economies.
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <h3 style="font-family: &quot;Playfair Display&quot;, serif">
+        GSV Model United Nations 2026
+      </h3>
+      <p
+        style="
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 1rem;
+          color: var(--logo-bright-blue);
+        "
+      >
+        Debate & Quiz Club | Gati Shakti Vishwavidyalaya
+      </p>
+      <p>
+        Contact:
+        <a
+          href="mailto:debate.quiz@gsv.ac.in"
+          style="color: var(--white); text-decoration: underline"
+          >debate.quiz@gsv.ac.in</a
+        >
+      </p>
+      <div class="social-container">
+        <span class="social-label">Follow Us On</span>
+        <div class="social-icons">
+          <a
+            href="https://www.instagram.com/d.q.gsv/"
+            class="social-icon"
+            aria-label="Instagram"
+            target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/company/108378145/"
+            class="social-icon"
+            aria-label="LinkedIn"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
