@@ -132,4 +132,5 @@ event, please reach out to the Organising Committee.
 
 ---
 
-Designed and developed for the inaugural **GSV Model United Nations**.
+Designed and developed for the inaugural **GSV Model United Nations** by [Parth Sidhu](https://github.com/Parth-Sidhu-4).
+Maintained by Debate And Quiz Club, Gati Shakti Vishwavidyalaya.
